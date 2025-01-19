@@ -9,6 +9,7 @@ export default function Auth() {
   const [isSignUp, setIsSignUp] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const { signIn, signUp } = useAuth();
+  const [loading, setLoading] = useState(false);
 
   const validatePassword = (password: string) => {
     if (password.length < 6) {
@@ -20,6 +21,7 @@ export default function Auth() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    setLoading(true);
 
     const passwordError = validatePassword(password);
     if (passwordError) {
@@ -40,6 +42,9 @@ export default function Auth() {
       } else {
         setError('An unexpected error occurred. Please try again.');
       }
+    }
+    finally {
+      setLoading(false);
     }
   };
 
@@ -137,7 +142,14 @@ export default function Auth() {
               type="submit"
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-              {isSignUp ? 'Sign up' : 'Sign in'}
+              {loading ? (
+                <svg className="animate-spin h-5 w-5 mr-3 h-5 w-5 text-white" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0c4.418 0 8 3.582 8 8s-3.582 8-8 8V4a4 4 0 00-4 4H0a8 8 0 014-4z" />
+                </svg>
+              ) : (
+                isSignUp ? 'Sign up' : 'Sign in'
+              )}
             </button>
           </div>
 
