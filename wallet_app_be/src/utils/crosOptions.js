@@ -1,4 +1,7 @@
-const allowedOriginsList = ["http://localhost:3000"];
+const allowedOriginsList = [
+  "http://localhost:3000",
+  "https://task-force-pro-2-0-challenge.vercel.app",
+];
 
 export const corsOptions = {
   origin: function (origin, callback) {
