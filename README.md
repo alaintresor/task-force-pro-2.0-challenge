@@ -14,6 +14,7 @@ This repository contains both the frontend and backend codebases for the **Task 
   - [Technologies](#technologies-1)
   - [Setup and Deployment](#setup-and-deployment-1)
 - [Environment Variables](#environment-variables)
+- [How To Test](#how-to-test)
 - [Priview Version](#priview-version)
 
 ---
@@ -123,8 +124,17 @@ Ensure both the backend and frontend have the correct `.env` files:
 
 ---
 
+## How To Test
+
+Create an account to get started. Begin by configuring your settings to set up accounts, create categories and subcategories, and define budget limits. Once done, proceed to record your transactions effortlessly.
+
 ## Priview Version
+Frontend:
 ```url
 https://task-force-pro-2-0-challenge.vercel.app/
+```
+backend:
+```url
+https://task-force-pro-2-0-challenge.onrender.com/api/v1/docs
 ```
 
